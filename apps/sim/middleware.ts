@@ -20,8 +20,8 @@ const BASE_DOMAIN = getBaseDomain()
 export async function middleware(request: NextRequest) {
   const url = request.nextUrl
   
-  // Allow health check requests from Railway to bypass all middleware
-  if (url.pathname === '/api/health' || url.pathname.startsWith('/api/yaml/health')) {
+  // Allow YAML health check requests to bypass all middleware  
+  if (url.pathname.startsWith('/api/yaml/health')) {
     return NextResponse.next()
   }
 
