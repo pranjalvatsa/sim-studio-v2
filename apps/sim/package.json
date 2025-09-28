@@ -15,7 +15,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "start:prod": "concurrently -n \"NextJS,Realtime\" -c \"cyan,magenta\" \"next start\" \"bun run socket-server/index.ts\"",
-    "db:migrate": "cd ../../packages/db && bun run db:migrate",
+    "db:migrate": "bunx drizzle-kit migrate --config=./drizzle.config.ts",
     "prepare": "cd ../.. && bun husky",
     "test": "vitest run",
     "test:watch": "vitest",
