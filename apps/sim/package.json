@@ -14,6 +14,7 @@
     "dev:full": "concurrently -n \"NextJS,Realtime\" -c \"cyan,magenta\" \"bun run dev\" \"bun run dev:sockets\"",
     "build": "next build --turbopack",
     "start": "next start",
+    "start:prod": "concurrently -n \"NextJS,Realtime\" -c \"cyan,magenta\" \"next start\" \"bun run socket-server/index.ts\"",
     "prepare": "cd ../.. && bun husky",
     "test": "vitest run",
     "test:watch": "vitest",
