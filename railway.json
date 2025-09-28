@@ -5,7 +5,7 @@
     "buildCommand": "cd apps/sim && bun install --frozen-lockfile && bun run build"
   },
   "deploy": {
-    "startCommand": "cd apps/sim && NODE_ENV=production PORT=${PORT:-3000} bun run start:with-migrate",
+    "startCommand": "cd apps/sim && bun run db:migrate && NODE_ENV=production bun run start",
     "healthcheckPath": "/api/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
