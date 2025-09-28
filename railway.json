@@ -5,7 +5,7 @@
     "buildCommand": "cd apps/sim && bun install --frozen-lockfile && bun run build"
   },
   "deploy": {
-    "startCommand": "cd apps/sim && NODE_ENV=production bun run socket-server/index.ts",
+    "startCommand": "cd apps/sim && NODE_ENV=production bun run start:prod",
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
