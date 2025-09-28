@@ -18,11 +18,17 @@ const SUSPICIOUS_UA_PATTERNS = [
 const BASE_DOMAIN = getBaseDomain()
 
 export async function middleware(request: NextRequest) {
+  const url = request.nextUrl
+  
+  // Allow health check requests from Railway to bypass all middleware
+  if (url.pathname === '/api/health' || url.pathname.startsWith('/api/yaml/health')) {
+    return NextResponse.next()
+  }
+
   // Check for active session
   const sessionCookie = getSessionCookie(request)
   const hasActiveSession = !!sessionCookie
 
-  const url = request.nextUrl
   const hostname = request.headers.get('host') || ''
 
   // Extract subdomain - handle nested subdomains for any domain
