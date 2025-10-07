@@ -14,7 +14,7 @@ COPY packages/db/package.json ./packages/db/
 RUN npm install -g bun
 
 # Install dependencies
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Copy source code
 COPY . .
