@@ -32,5 +32,5 @@ EXPOSE 3000
 # Set environment
 ENV NODE_ENV=production
 
-# Start the application
-CMD ["bun", "run", "start"]
+# Start the application (both Next.js and Socket.IO server)
+CMD ["bun", "run", "start:prod"]
