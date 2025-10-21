@@ -23,7 +23,8 @@
     "check": "bunx biome check --files-ignore-unknown=true",
     "prepare": "bun husky",
     "type-check": "turbo run type-check",
-    "release": "bun run scripts/create-single-release.ts"
+    "release": "bun run scripts/create-single-release.ts",
+    "start": "cd apps/sim && bun run start"
   },
   "overrides": {
     "react": "19.1.0",
